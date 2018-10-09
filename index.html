@@ -16,33 +16,7 @@
 </head>
 
 <body>
-
-<header>
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Study log</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarCollapse" aria-controls="navbarCollapse"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home <span
-                            class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="OS/index.html">Operating
-                        System</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="network/index.html">Networks</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
+<div class="headerPage"></div>
 
 <!-- Begin page content -->
 <main role="main" class="container text-center">
@@ -76,16 +50,26 @@
             </div>
         </div>
 
-        <div class="card text-white bg-success  col-sm-6"
+        <div class="card text-white bg-danger  col-sm-6"
              style="max-width: 18rem;">
-             <!--onclick="window.open('')">-->
-            <div class="card-header">Soft Engineering</div>
+            <!--onclick="window.open('')">-->
+            <div class="card-header">Server Notes</div>
             <div class="card-body">
-                <h5 class="card-title">Assignment report</h5>
-                <p class="card-text">Every report's html version will upload to
-                    this part</p>
+                <h5 class="card-title">Server Notes</h5>
+                <p class="card-text">Problems when I'm establishing server list here.</p>
             </div>
         </div>
+        <br>
+        <!--<div class="card text-white bg-success  col-sm-6"-->
+             <!--style="max-width: 18rem;">-->
+             <!--&lt;!&ndash;onclick="window.open('')">&ndash;&gt;-->
+            <!--<div class="card-header">Soft Engineering</div>-->
+            <!--<div class="card-body">-->
+                <!--<h5 class="card-title">Assignment report</h5>-->
+                <!--<p class="card-text">Every report's html version will upload to-->
+                    <!--this part</p>-->
+            <!--</div>-->
+        <!--</div>-->
 
         <div class="card bg-light  col-sm-6"
              style="max-width: 18rem;">
@@ -100,20 +84,17 @@
     </div>
 </main>
 
-<footer class="footer">
-    <div class="container">
-        <span class="text-muted">Post by ZeSheng Jia.</span>
-    </div>
-</footer>
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')</script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<div class="footerPage"></div>
+<script src="js/jquery.min.js"></script>
+<script>
+    $(function(){
+        /*公共部分
+         * 导航栏
+         * footer CopyRight
+         */
+        $(".headerPage").load("header_footer/header.html");
+        $(".footerPage").load("header_footer/footer.html");
+    });
+</script>
 </body>
 </html>
