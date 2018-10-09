@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9fdd3506-88f3-488d-a4be-b93fb4e38341" name="root" url="http://easonjia.online">
+        <fileTransfer host="172.104.97.61" port="48374" rootFolder="/var/www/html" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="48374" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="d648266c-d42f-42d2-b8ee-d3273a3f1141" name="local" url="http://localhost:63342/homepage">
+        <fileTransfer port="0" mountedRoot="$PROJECT_DIR$" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>

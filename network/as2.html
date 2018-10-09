@@ -1,0 +1,2949 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../img/favicon.ico">
+
+    <title>Operating system notebooks</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../css/sticky-footer-navbar.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- common.css -->
+    <style>* {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    html {
+        -webkit-text-size-adjust: none;
+    }
+
+    body {
+        font-family: -apple-system, Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+        word-wrap: break-word;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        line-height: 1.1;
+    }
+
+    img {
+        max-width: 100% !important;
+        height: auto;
+    }
+
+    blockquote {
+        margin: 0;
+        padding: 0 15px;
+        color: #777;
+        border-left: 4px solid #ddd;
+    }
+
+    hr {
+        background-color: #ddd;
+        border: 0;
+        height: 1px;
+        margin: 15px 0;
+    }
+
+    code {
+        font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;
+        line-height: 1.4;
+        margin: 0;
+        padding: 0.2em 0;
+        font-size: 90%;
+        background-color: rgba(0, 0, 0, 0.04);
+        border-radius: 3px;
+    }
+
+    pre > code {
+        margin: 0;
+        padding: 0;
+        font-size: 100%;
+        word-break: normal;
+        background: transparent;
+        border: 0;
+    }
+
+    ol {
+        list-style-type: decimal;
+    }
+
+    ol ol, ul ol {
+        list-style-type: lower-latin;
+    }
+
+    ol ol ol, ul ol ol, ul ul ol, ol ul ol {
+        list-style-type: lower-roman;
+    }
+
+    table {
+        border-spacing: 0;
+        border-collapse: collapse;
+        margin-top: 0;
+        margin-bottom: 16px;
+    }
+
+    table th {
+        font-weight: bold;
+    }
+
+    table th, table td {
+        padding: 6px 13px;
+        border: 1px solid #ddd;
+    }
+
+    table tr {
+        border-top: 1px solid #ccc;
+    }
+
+    table tr:nth-child(even) {
+        background-color: #f8f8f8;
+    }
+
+    input[type="checkbox"] {
+        cursor: default;
+        margin-right: 0.5em;
+        font-size: 13px;
+    }
+
+    .task-list-item {
+        list-style-type: none;
+    }
+
+    .task-list-item + .task-list-item {
+        margin-top: 3px;
+    }
+
+    .task-list-item input {
+        float: left;
+        margin: 0.3em 1em 0.25em -1.6em;
+        vertical-align: middle;
+    }
+
+    #tag-field {
+        margin: 8px 2px 10px;
+    }
+
+    #tag-field .tag {
+        display: inline-block;
+        background: #cadff3;
+        border-radius: 4px;
+        padding: 1px 8px;
+        color: black;
+        font-size: 12px;
+        margin-right: 10px;
+        line-height: 1.4;
+    }</style>
+    <!-- ace-static.css -->
+    <style>.ace_static_highlight {
+        white-space: pre-wrap;
+    }
+
+    .ace_static_highlight .ace_gutter {
+        width: 2em;
+        text-align: right;
+        padding: 0 3px 0 0;
+        margin-right: 3px;
+    }
+
+    .ace_static_highlight.ace_show_gutter > .ace_line {
+        padding-left: 2.6em;
+    }
+
+    .ace_static_highlight .ace_line {
+        position: relative;
+    }
+
+    .ace_static_highlight .ace_gutter-cell {
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+    }
+
+    .ace_static_highlight .ace_gutter-cell:before {
+        content: counter(ace_line, decimal);
+        counter-increment: ace_line;
+    }
+
+    .ace_static_highlight {
+        counter-reset: ace_line;
+    }</style>
+    <style>.ace-monokai .ace_gutter {
+        background: #2F3129;
+        color: #8F908A
+    }
+
+    .ace-monokai .ace_print-margin {
+        width: 1px;
+        background: #555651
+    }
+
+    .ace-monokai {
+        background-color: #272822;
+        color: #F8F8F2
+    }
+
+    .ace-monokai .ace_cursor {
+        color: #F8F8F0
+    }
+
+    .ace-monokai .ace_marker-layer .ace_selection {
+        background: #49483E
+    }
+
+    .ace-monokai.ace_multiselect .ace_selection.ace_start {
+        box-shadow: 0 0 3px 0px #272822;
+    }
+
+    .ace-monokai .ace_marker-layer .ace_step {
+        background: rgb(102, 82, 0)
+    }
+
+    .ace-monokai .ace_marker-layer .ace_bracket {
+        margin: -1px 0 0 -1px;
+        border: 1px solid #49483E
+    }
+
+    .ace-monokai .ace_marker-layer .ace_active-line {
+        background: #202020
+    }
+
+    .ace-monokai .ace_gutter-active-line {
+        background-color: #272727
+    }
+
+    .ace-monokai .ace_marker-layer .ace_selected-word {
+        border: 1px solid #49483E
+    }
+
+    .ace-monokai .ace_invisible {
+        color: #52524d
+    }
+
+    .ace-monokai .ace_entity.ace_name.ace_tag, .ace-monokai .ace_keyword, .ace-monokai .ace_meta.ace_tag, .ace-monokai .ace_storage {
+        color: #F92672
+    }
+
+    .ace-monokai .ace_punctuation, .ace-monokai .ace_punctuation.ace_tag {
+        color: #fff
+    }
+
+    .ace-monokai .ace_constant.ace_character, .ace-monokai .ace_constant.ace_language, .ace-monokai .ace_constant.ace_numeric, .ace-monokai .ace_constant.ace_other {
+        color: #AE81FF
+    }
+
+    .ace-monokai .ace_invalid {
+        color: #F8F8F0;
+        background-color: #F92672
+    }
+
+    .ace-monokai .ace_invalid.ace_deprecated {
+        color: #F8F8F0;
+        background-color: #AE81FF
+    }
+
+    .ace-monokai .ace_support.ace_constant, .ace-monokai .ace_support.ace_function {
+        color: #66D9EF
+    }
+
+    .ace-monokai .ace_fold {
+        background-color: #A6E22E;
+        border-color: #F8F8F2
+    }
+
+    .ace-monokai .ace_storage.ace_type, .ace-monokai .ace_support.ace_class, .ace-monokai .ace_support.ace_type {
+        font-style: italic;
+        color: #66D9EF
+    }
+
+    .ace-monokai .ace_entity.ace_name.ace_function, .ace-monokai .ace_entity.ace_other, .ace-monokai .ace_entity.ace_other.ace_attribute-name, .ace-monokai .ace_variable {
+        color: #A6E22E
+    }
+
+    .ace-monokai .ace_variable.ace_parameter {
+        font-style: italic;
+        color: #FD971F
+    }
+
+    .ace-monokai .ace_string {
+        color: #E6DB74
+    }
+
+    .ace-monokai .ace_comment {
+        color: #75715E
+    }
+
+    .ace-monokai .ace_indent-guide {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ0FD0ZXBzd/wPAAjVAoxeSgNeAAAAAElFTkSuQmCC) right repeat-y
+    }</style>
+    <!-- export.css -->
+    <style>
+        body {
+            margin: 0 auto;
+            line-height: 1.4
+        }
+
+        #nav {
+            margin: 5px 0 10px;
+            font-size: 15px
+        }
+
+        #titlearea {
+            border-bottom: 1px solid #ccc;
+            font-size: 17px;
+            padding: 10px 0;
+        }
+
+        #contentarea {
+            font-size: 15px;
+            margin: 16px 0
+        }
+
+        .cell {
+            outline: 0;
+            min-height: 20px;
+            margin: 5px 0;
+            padding: 5px 0;
+        }
+
+        .code-cell {
+            font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;
+            font-size: 12px;
+        }
+
+        .latex-cell {
+            white-space: pre-wrap;
+        }
+    </style>
+    <!-- User CSS -->
+    <style> .text-cell {
+        font-size: 15px;
+    }
+
+    .code-cell {
+        font-size: 12px;
+    }
+
+    .markdown-cell {
+        font-size: 15px;
+    }
+
+    .latex-cell {
+        font-size: 15px;
+    }</style>
+</head>
+<body>
+<header>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Study log</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="../index.html">Home <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../OS/index.html">Operating
+                        System</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="../network/index.html">Networks</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main role="main" class="container">
+    <div id="nav">
+        <div>Up: <a href='index.html'>Index</a></div>
+    </div>
+    <div id="titlearea">
+        <h2>Assignment 2</h2>
+    </div>
+    <div id="contentarea">
+        <div class="cell markdown-cell">
+            <blockquote>
+                <h2>Author : Zesheng Jia</h2>
+                <h2>A_number : A00416452</h2>
+            </blockquote>
+        </div>
+        <div class="cell markdown-cell"><h2>Question 1: (3 points) Application
+            Layer Protocols</h2>
+            <p>Snapchat, Instagram and Twitter are all smartphone real-time
+                social media applications. After doing some research on the
+                Internet, for each of these applications, write one paragraph
+                about the protocols they use. Then write one paragraph
+                explaining how they differ.</p>
+        </div>
+        <div class="cell markdown-cell"><h2>Sol.</h2>
+            <h3>Snapchat:</h3>
+            <p>SIP protocol. RTP protocol.</p>
+            <blockquote>
+                <p>Session Initiation Protocol (SIP) is one of the most common
+                    protocols used in VoIP technology. It is an application
+                    layer protocol that works in conjunction with other
+                    application layer protocols to control multimedia
+                    communication sessions over the Internet.<br>
+                    Ref:
+                    <a href="https://www.tutorialspoint.com/session_initiation_protocol/session_initiation_protocol_introduction.htm">https://www.tutorialspoint.com/session_initiation_protocol/session_initiation_protocol_introduction.htm</a>
+                </p>
+            </blockquote>
+            <p>As we know, the users use snapchat for sending multimedia
+                messages to each other. Also, it belongs to SIMPLE
+                protocol.</p>
+            <blockquote>
+                <p>SIMPLE, the Session Initiation Protocol for Instant
+                    Messaging and Presence Leveraging Extensions, is an instant
+                    messaging (IM) and presence protocol suite based on Session
+                    Initiation Protocol (SIP) managed by the Internet
+                    Engineering Task Force.[1] Contrary to the vast majority of
+                    IM and presence protocols used by software deployed today,
+                    SIMPLE is an open standard like XMPP.<br>
+                    Ref:
+                    <a href="https://en.wikipedia.org/wiki/SIMPLE_(instant_messaging_protocol)">https://en.wikipedia.org/wiki/SIMPLE_(instant_messaging_protocol)</a><br>
+                    <img src="resources/0E916DFA14F63F04D6D1419373A52AC5.png"
+                         alt="Screen Shot 2018-10-08 at 8.13.59 PM.png"
+                         width="1529" height="575"></p>
+            </blockquote>
+            <hr>
+            <h3>Instagram</h3>
+            <blockquote>
+                <p>Instagram (also known as IG[8]) is a photo and video-sharing
+                    social networking service owned by Facebook, Inc.</p>
+            </blockquote>
+            <p>We can use Instagram for sharing photos and videos.<br>
+                It can use http stream protocol, https protocol, rtsp protocol.
+            </p>
+            <blockquote>
+                <p>HIPSTER PHOTO-SHARING APP Instagram will switch to HTTPS
+                    following the discovery of a zero-day vulnerability in the
+                    mobile app that is believed to allow an attacker to hijack
+                    a user's account.<br>
+                    Ref:
+                    <a href="https://www.theinquirer.net/inquirer/news/2357779/instagram-to-use-https-following-discovery-of-gaping-security-hole-in-ios-app">https://www.theinquirer.net/inquirer/news/2357779/instagram-to-use-https-following-discovery-of-gaping-security-hole-in-ios-app</a>
+                </p>
+            </blockquote>
+            <p>Because most of words, photos and pre-stored videos can be used
+                by http/https protocol.<br>
+                And the video streaming can be used by http steam protocol or
+                rtsp protocol.</p>
+            <hr>
+            <h3>Twitter</h3>
+            <p>Http protocol.</p>
+            <p>Most of twitter content is photo, video and message. Therefore,
+                if use http protocol, then most of features can be
+                accomplished.<br>
+                Because http protocl can contain multimedia information and
+                transmit from server to client.</p>
+            <h3>Differ</h3>
+            <ol>
+                <li>http vs sip<br>
+                    sip is a p2p protocol.
+                </li>
+                <li>http stream vs http<br>
+                    http stream and rtsp can send video stream to client.<br>
+                    HTTP protocol can't.
+                </li>
+            </ol>
+            <blockquote>
+                <p>HTTP servlets have a particular context (called the
+                    context-root) in which they run, while SIP servlets have no
+                    context.</p>
+                <p>HTTP servlets typically return HTML pages to the requesting
+                    client, while SIP servlets typically connect SIP-enabled
+                    clients to enable telecommunications between the client and
+                    server.</p>
+                <p>SIP is a peer-to-peer protocol, unlike HTTP, and SIP
+                    servlets can originate SIP requests, unlike HTTP servlets
+                    which only send responses to the originating client.</p>
+                <p>SIP servlets often act as proxies to other SIP endpoints,
+                    while HTTP servlets are typically the final endpoint for
+                    incoming HTTP requests.</p>
+                <p>SIP servlets can generate multiple responses for a
+                    particular request.</p>
+                <p>SIP servlets can communicate asynchronously, and are not
+                    obligated to respond to incoming requests.</p>
+                <p>SIP servlets often work in concert with other SIP servlets
+                    to respond to particular SIP requests, unlike HTTP servlets
+                    which typically are solely responsible for responding to
+                    HTTP requests.<br>
+                    Ref:
+                    <a href="https://docs.oracle.com/cd/E19355-01/820-3007/gfmpm/index.html">https://docs.oracle.com/cd/E19355-01/820-3007/gfmpm/index.html</a>
+                </p>
+            </blockquote>
+            <p>As for applications,<br>
+                snapchat use sip protocol.<br>
+                Twitter and instagram uss http stream protocol.<br>
+                And all of them use http protocl.</p>
+        </div>
+        <div class="cell markdown-cell"><h2>Question 2: (2 points) Layering and
+            Encapsulation</h2>
+            <p>The protocol layers in the TCP/IP stack were motivated by
+                isolating responsibilities of the network to one layer. This
+                division usually means that specific pieces of data only
+                appears in that layer. For example, the IP address of a packet
+                only appears in the network layer header. On the other hand,
+                the number of bytes in the message often appears in each
+                layer's header, which seems redundant.</p>
+            <h3>a) Explain why might we tolerate this redundancy?</h3>
+            <h3>Sol.</h3>
+            <p>First of all, we haven't come up with a solution that can
+                eliminate this redundancy. And the benefit of layers is much
+                more than this redundancy.</p>
+            <p>After we divide protocol as different layer, and the specific
+                pieces of data only show in that layer. We make our data
+                transmitting become more safety.<br>
+                However, we must add number of bytes in the message in each
+                layer. Otherwise, base on packets-switched networks, we won't
+                know how many packets belong to one message. And it also suits
+                for other layers.</p>
+            <h3>b) Consider the airline travel analogy in our discussing of
+                layering and the addition of headers to protocol data units as
+                they flow down the protocol stack. Is there an equivalent
+                notion of header information that is added to passengers and
+                baggage as they move down the airline protocol stack?</h3>
+            <h3>Sol.</h3>
+            <p>Yes, similar to Protocol layers.<br>
+                Onece we purchase the tickets. There are our flying information
+                on it.<br>
+                We use those information, as gate port, time, airline number to
+                find our airplane. The ticket is similar to the header.<br>
+                In the meantime, there will be a tag on our baggage. Like the
+                header too.<br>
+                According to those headers, ouself and our baggage will find
+                the destination at the end.<br>
+                <img src="resources/F3DCF8FFB7F68A6D3BB4E9A34E3EBA9D.jpg"
+                     alt="IMAGE" width="847" height="486"></p>
+        </div>
+        <div class="cell markdown-cell"><h2>Question 3: (6 points) Network
+            Application Architectures.</h2>
+            <p>We discussed three application architectures: client-server,
+                P2P, and a hybrid of the two. Classify each of the scenarios
+                below as client-server, P2P, or hybrid, and explain your answer
+                briefly. Answering these questions may require some Web
+                surfing.</p>
+            <h3>a) EBay</h3>
+            <p><strong><em>Sol.</em></strong><br>
+                Hybrid application architecture.</p>
+            <p>Because we can get all the commodity information from eBay's
+                server.<br>
+                Buy things also is client-server <a
+                        href="http://architecture.In">architecture.In</a> this
+                part, we only need to send requests to the server and get
+                feedback. In the meantime, eBay's website is an always-on host-&gt;server.
+                We only need to deal with requests and responses.</p>
+            <p>And on the other hand, we also can have chat with the personal
+                merchants on eBay, who used desktops and laptops by themselves.<br>
+                This part will be P2P architecture.<br>
+                Because every hosts right now could receive and send requests
+                as messages.</p>
+            <hr>
+            <h3>b) Skype</h3>
+            <p><strong><em>Sol.</em></strong><br>
+                Most of functions of Skype belongs to P2P.<br>
+                Because main feature of Skype is video chatting or words
+                chatting.<br>
+                The users use their applications to provide info and data.<br>
+                Create the main accomplish of Skype.<br>
+                Because those communication without passing through a dedicated
+                server. All the host are provide by personal users.</p>
+            <hr>
+            <h3>c) Telnet</h3>
+            <p><strong><em>Sol.</em></strong><br>
+                It belongs to client - server architecture</p>
+            <blockquote>
+                <p>Telnet is a protocol used on the Internet or local area
+                    network to provide a bidirectional interactive
+                    text-oriented communication facility using a virtual
+                    terminal connection. User data is interspersed in-band with
+                    Telnet control information in an 8-bit byte oriented data
+                    connection over the Transmission Control Protocol
+                    (TCP).</p>
+            </blockquote>
+            <p>Telnet's communication based on server and client in
+                bidirectional way.<br>
+                There is an always-on host, server and a host who always send
+                requests, client.<br>
+                It is a typically client-server architecture.</p>
+            <hr>
+            <h3>d) What are some advantages that P2P provides over
+                client-server architecture?</h3>
+            <p><strong><em>Sol.</em></strong></p>
+            <ol>
+                <li>No need an expensive server for handling requests. Each
+                    host could done the tasks.
+                </li>
+                <li>P2P's self-scalability.
+                    <blockquote>
+                        <p>Although, each peer generates workload by requesting
+                            files, each peer also adds service capacity to-the
+                            system by distributing files to other peers.</p>
+                    </blockquote>
+                </li>
+                <li>Cost effective.
+                    <blockquote>
+                        <p>Since they normally don't require significant server
+                            infrastructure and server bandwidth.</p>
+                    </blockquote>
+                </li>
+            </ol>
+            <blockquote>
+                <p>Ref: From text book.</p>
+            </blockquote>
+            <hr>
+            <h3>e) What P2P file sharing protocol is attributed to producing
+                the most P2P traffic on the Internet today?</h3>
+            <p><strong><em>Sol.</em></strong><br>
+                Likely from BitTorrent.</p>
+            <blockquote>
+                <h3>The most popular P2P file distribution protocol is <strong><em>BitTorrent</em></strong>.
+                </h3>
+                <p>Ref: Text book.</p>
+            </blockquote>
+            <h3>f) When you are using P2P networks, how can you be sure that
+                the files you are downloading are not copyrighted and are safe
+                from malware?</h3>
+            <p><strong><em>Sol.</em></strong><br>
+                Simply say that we can not be sure.<br>
+                Every files from P2P networks are un-checked. Because it is
+                uploaded by individual users. Some P2P provider will check the
+                files for us, but it is still not 100% security.<br>
+                However, there is a few things we can do to prevent any
+                dangerous things happening.</p>
+            <ol>
+                <li>Don't not download from suspected website.</li>
+                <li>Check others' comments first.</li>
+                <li>Use antivirus program for scanning every file that you
+                    download.
+                </li>
+                <li>Maybe do not use P2P file distribution system.</li>
+            </ol>
+        </div>
+        <div class="cell markdown-cell"><h2>Question 4: (5 points) HTTP</h2>
+            <p>Obtain HTTP/1.1 specification (RFC 2616). Answer the following
+                questions:</p>
+            <h3>a) Explain the mechanism used for signaling between the client
+                and server to indicate that a persistent connection is begin
+                closed. Can the client, the server, or both signal the close of
+                a connection?</h3>
+            <h3>Sol.</h3>
+            <p>After server sending all response.</p>
+            <ol>
+                <li>The HTTP server process tells TCP to close the TCP
+                    connection.(But TCP doesn't actually terminate connection
+                    until it knows for sure that the client has recevied the
+                    response message intact.)
+                </li>
+                <li>The HTTP client receives the response message with close
+                    connection message. The TCP connection terminates.
+                </li>
+                <li>By <code>connection:close</code> header line.</li>
+            </ol>
+            <p>Yes. Both of them can signal the close of a connection.</p>
+            <blockquote>
+                <p>In persistent connection mode, the server will leaves the
+                    TCP connection open after sending a response. Subsequent
+                    requests and responses between the same client and server
+                    can be sent over the same connection.<br>
+                    The requests from client and for objects can be made
+                    back-to-back, without waiting for replies to pending
+                    requests.<br>
+                    Typically, the HTTP server closes a connection when it
+                    isn't used for a certain time(a configurable timeout
+                    interval).</p>
+            </blockquote>
+            <p>The client won't wait for server's response forever, after
+                sending all request, it will wait a certain time.If there is no
+                response from server, the connection will close. As same as the
+                server.</p>
+            <hr>
+            <h3>b) What encryption services are provided by HTTP?</h3>
+            <h3>Sol.</h3>
+            <p>There is no certain encryption services in HTTP 1.1 <code>RFC
+                2616</code><br>
+                However, we can find a few encoding in this version of
+                protocol.<br>
+                In section, 3,5 Content Coding</p>
+            <blockquote>
+                <p>Ref: <a href="https://www.ietf.org/rfc/rfc2616.txt">https://www.ietf.org/rfc/rfc2616.txt</a><br>
+                    3.5 Content Codings</p>
+                <p>Content coding values indicate an encoding transformation
+                    that has<br>
+                    been or can be applied to an entity. Content codings are
+                    primarily<br>
+                    used to allow a document to be compressed or otherwise
+                    usefully<br>
+                    transformed without losing the identity of its underlying
+                    media type<br>
+                    and without loss of information. Frequently, the entity is
+                    stored in<br>
+                    coded form, transmitted directly, and only decoded by the
+                    recipient.</p>
+                <pre><code> content-coding   = token
+</code></pre>
+                <p>All content-coding values are case-insensitive. HTTP/1.1
+                    uses<br>
+                    content-coding values in the Accept-Encoding (section 14.3)
+                    and<br>
+                    Content-Encoding (section 14.11) header fields. Although
+                    the value<br>
+                    describes the content-coding, what is more important is
+                    that it<br>
+                    indicates what decoding mechanism will be required to
+                    remove the<br>
+                    encoding.</p>
+            </blockquote>
+            <p>And 3.6 Transfer Codings.<br>
+                In order to use encryption services, we could apply https
+                protocol<br>
+                which includes a secure socket layer within the HTTP protocol
+                and therefore can encrypt sent messages.</p>
+            <hr>
+            <p><strong><em>However, things changed after
+                June,2017</em></strong><br>
+                <img src="resources/F093A68A980ABFF72F9E7E105FB3BC02.jpg"
+                     alt="IMAGE" width="480" height="125">.<br>
+                <code>RFC 8188</code> added encryption into HTTP protocol.</p>
+            <blockquote>
+                <p>Ref: <a href="https://tools.ietf.org/html/rfc8188">https://tools.ietf.org/html/rfc8188</a>
+                </p>
+            </blockquote>
+        </div>
+        <div class="cell text-cell"><pre
+                style="font-size: 13.3333px; margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 0); font-variant-ligatures: normal; orphans: 2; widows: 2;">   <span
+                class="h1"
+                style="line-height: 0pt; display: inline; font-size: 1em; font-weight: bold;"><h1
+                style="line-height: 0pt; display: inline; font-size: 1em;">Encrypted Content-Encoding for HTTP</h1></span>
+
+Abstract
+
+   This memo introduces a content coding for HTTP that allows message
+   payloads to be encrypted.
+
+Status of This Memo
+
+   This is an Internet Standards Track document.
+
+   This document is a product of the Internet Engineering Task Force
+   (IETF).  It represents the consensus of the IETF community.  It has
+   received public review and has been approved for publication by the
+   Internet Engineering Steering Group (IESG).  Further information on
+   Internet Standards is available in <a
+                    href="https://tools.ietf.org/html/rfc7841#section-2">Section&nbsp;2 of RFC 7841</a>.
+
+   Information about the current status of this document, any errata,
+   and how to provide feedback on it may be obtained at
+   <a href="http://www.rfc-editor.org/info/rfc8188">http://www.rfc-editor.org/info/rfc8188</a>.
+</pre>
+            <div><br></div>
+        </div>
+        <div class="cell markdown-cell">
+            <hr>
+            <h3>c) Can a client open three or more simultaneous connections
+                with a given server?</h3>
+            <h3>Sol.</h3>
+            <p>Yes. As we using threads or processes to deal with multiple
+                request from client at server. It is also available for one
+                client open multiple simultaneous connections with one
+                server.<br>
+                And in HTTP 1.1, it will works more properly.</p>
+            <blockquote>
+                <p>2.1. Connection persistence<br>
+                    The process of establishing a connection from one host to
+                    another is quite complex and involves multiple packet
+                    exchanges between two endpoints, which can be quite time
+                    consuming. The overhead of connection handshaking can be
+                    significant, especially for small HTTP messages. One can
+                    achieve a much higher data throughput if open connections
+                    can be re-used to execute multiple requests.<br>
+                    HTTP/1.1 states that HTTP connections can be re-used for
+                    multiple requests per default. HTTP/1.0 compliant endpoints
+                    can also use a mechanism to explicitly communicate their
+                    preference to keep connection alive and use it for multiple
+                    requests. HTTP agents can also keep idle connections alive
+                    for a certain period time in case a connection to the same
+                    target host is needed for subsequent requests. The ability
+                    to keep connections alive is usually refered to as
+                    connection persistence. HttpClient fully supports
+                    connection persistence.<br>
+                    Ref:
+                    <a href="https://hc.apache.org/httpcomponents-client-ga/tutorial/html/connmgmt.html">https://hc.apache.org/httpcomponents-client-ga/tutorial/html/connmgmt.html</a>
+                </p>
+            </blockquote>
+            <hr>
+            <h3>d) Either a server or a client may close a transport connection
+                between them if either</h3>
+            <p>one detects the connection has been idle for some time. Is it
+                possible that one side starts closing a connection while the
+                other side is transmitting data via this connection?
+                Explain.</p>
+            <h3>Sol.</h3>
+            <p>Yes, it is possible.<br>
+                According to <code>RFC 2616</code> 8.1.4<br>
+                Because HTTP is stateless. Neither of client and server will
+                know other states, unless receiving message.<br>
+                However, according to <code>RFC 2616</code> 8.1.4, client and
+                server can recover the session and retransmit the messages.</p>
+            <blockquote>
+                <p>8.1.4 Practical Considerations</p>
+                <p>Servers will usually have some time-out value beyond which
+                    they will<br>
+                    no longer maintain an inactive connection. Proxy servers
+                    might make<br>
+                    this a higher value since it is likely that the client will
+                    be making<br>
+                    more connections through the same server. The use of
+                    persistent<br>
+                    connections places no requirements on the length (or
+                    existence) of<br>
+                    this time-out for either the client or the server.</p>
+                <p>When a client or server wishes to time-out it SHOULD issue a
+                    graceful<br>
+                    close on the transport connection. Clients and servers
+                    SHOULD both<br>
+                    constantly watch for the other side of the transport close,
+                    and<br>
+                    respond to it as appropriate. If a client or server does
+                    not detect<br>
+                    the other side's close promptly it could cause unnecessary
+                    resource<br>
+                    drain on the network.</p>
+                <p>A client, server, or proxy MAY close the transport
+                    connection at any<br>
+                    time. For example, a client might have started to send a
+                    new request<br>
+                    at the same time that the server has decided to close the
+                    "idle"<br>
+                    connection. From the server's point of view, the connection
+                    is being<br>
+                    closed while it was idle, but from the client's point of
+                    view, a<br>
+                    request is in progress.</p>
+                <p>This means that clients, servers, and proxies MUST be able
+                    to recover<br>
+                    from asynchronous close events. Client software SHOULD
+                    reopen the<br>
+                    transport connection and retransmit the aborted sequence of
+                    requests<br>
+                    without user interaction so long as the request sequence is<br>
+                    idempotent (see section 9.1.2). Non-idempotent methods or
+                    sequences<br>
+                    MUST NOT be automatically retried, although user agents MAY
+                    offer a<br>
+                    human operator the choice of retrying the request(s).
+                    Confirmation by<br>
+                    user-agent software with semantic understanding of the
+                    application<br>
+                    MAY substitute for user confirmation. The automatic retry
+                    SHOULD NOT<br>
+                    be repeated if the second sequence of requests fails.</p>
+                <p>Servers SHOULD always respond to at least one request per
+                    connection,<br>
+                    if at all possible. Servers SHOULD NOT close a connection
+                    in the<br>
+                    middle of transmitting a response, unless a network or
+                    client failure<br>
+                    is suspected.</p>
+                <p>Clients that use persistent connections SHOULD limit the
+                    number of<br>
+                    simultaneous connections that they maintain to a given
+                    server. A<br>
+                    single-user client SHOULD NOT maintain more than 2
+                    connections with<br>
+                    any server or proxy. A proxy SHOULD use up to 2*N
+                    connections to<br>
+                    another server or proxy, where N is the number of
+                    simultaneously<br>
+                    active users. These guidelines are intended to improve HTTP
+                    response<br>
+                    times and avoid congestion.</p>
+            </blockquote>
+            <hr>
+            <h3>e) How is HTTP2 different from HTTP1.1?</h3>
+            <h3>Sol.</h3>
+            <p>Http2 allows multiple requests and replies to be interleaved in
+                the same connection.</p>
+            <blockquote>
+                <p>HTTP/2 supports queries multiplexing, headers compression,
+                    priority and more intelligent packet streaming management.
+                    This results in reduced latency and accelerates content
+                    download on modern web pages.<br>
+                    Ref:
+                    <a href="https://stackoverflow.com/questions/28592077/difference-between-http-1-1-and-http-2-0">https://stackoverflow.com/questions/28592077/difference-between-http-1-1-and-http-2-0</a>
+                </p>
+            </blockquote>
+        </div>
+        <div class="cell markdown-cell"><h2>Question 5: (16 points) Programming
+            with Sockets</h2>
+            <p>The purpose of this exercise is to help you practice the basics
+                of socket programming for TCP connections: how to create a
+                socket, bind it to a specific address and port, as well as send
+                and receive a HTTP packet. You will write a program that serves
+                as a primitive web server. Your web server is very basic for
+                now, it can handle the following:</p>
+            <ol>
+                <li>Create a connection socket when contacted by a client (web
+                    browser)
+                </li>
+                <li>Receive the HTTP request from this connection</li>
+                <li>Parse the request to determine the specific file being
+                    requested
+                </li>
+                <li>Get the requested file from the server’s file system</li>
+                <li>Create an HTTP response message consisting of the requested
+                    file preceded by header lines; and
+                </li>
+                <li>Send the response over the TCP connection to the requesting
+                    browser.
+                </li>
+                <li>If a browser requests a file that is not present in your
+                    server, your server should return<br>
+                    “404 File Not Found” error message.<br>
+                    Your job is to:
+                </li>
+            </ol>
+            <h2>Task 1: (8 points) implement the server code. You server should
+                do the following:</h2>
+            <ul>
+                <li>Take one argument denoting the port number to which the web
+                    server should bind.
+                </li>
+                <li>Initialize appropriate sockets</li>
+                <li>Enter an infinite loop that<br>
+                    o Waits for one or more clients to connect o Connects to
+                    each client<br>
+                    o Processes client’s requests
+                </li>
+                <li>Server processes clients requests as follows:<br>
+                    o receive a request message<br>
+                    o parses the message and extract the requested file
+                    path<br>
+                    o send back appropriate response depending on the request
+                    and/or availability of<br>
+                    the file<br>
+                    o close connection with the client
+                </li>
+            </ul>
+        </div>
+        <div class="cell markdown-cell"><h1>Source code:</h1>
+        </div>
+        <div class="cell code-cell">
+            <div class="ace-monokai">
+                <div class="ace_static_highlight ace_show_gutter"
+                     style="counter-reset:ace_line 0">
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span class="ace_comment">/*</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span class="ace_comment"> * Author   : Zesheng Jia</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span class="ace_comment"> * A number : A00416452</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span class="ace_comment"> * Java socket communication with TCP/Http</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span class="ace_comment"> *</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span class="ace_comment"> * Reference:</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span class="ace_comment"> * 1. https://www.jianshu.com/p/eea234c157e2</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span class="ace_comment"> * 2. https://stackoverflow.com/questions/3732109/simple-http-server-in-</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span class="ace_comment"> * java-using-only-java-se-api</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span class="ace_comment"> * 3. https://www.jianshu.com/p/2ff10a02b2b8</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span class="ace_comment"> */</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span class="ace_keyword">import</span>
+                        <span class="ace_identifier">java</span>.<span
+                                class="ace_identifier">io</span>.<span
+                                class="ace_keyword ace_operator">*</span>;
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span class="ace_keyword">import</span>
+                        <span class="ace_identifier">java</span>.<span
+                                class="ace_identifier">net</span>.<span
+                                class="ace_identifier">ServerSocket</span>;
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span class="ace_keyword">import</span>
+                        <span class="ace_identifier">java</span>.<span
+                                class="ace_identifier">net</span>.<span
+                                class="ace_identifier">Socket</span>;
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_comment ace_doc">/**</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_comment ace_doc"> * webServer for receiving request from a web client</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_comment ace_doc"> * request for html file output</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_comment ace_doc"> * response will be a html file</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_comment ace_doc"> * if file can't be found go back to 404 not found.</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_comment ace_doc"> */</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span class="ace_keyword">public</span>
+                        <span class="ace_keyword">class</span> <span
+                                class="ace_identifier">webServer</span> {
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span> <span
+                            class="ace_keyword">private</span> <span
+                            class="ace_keyword">static</span> <span
+                            class="ace_keyword">final</span> <span
+                            class="ace_support ace_function">Integer</span>
+                        <span class="ace_identifier">port</span> <span
+                                class="ace_keyword ace_operator">=</span> <span
+                                class="ace_constant ace_numeric">1989</span>;
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span> <span
+                            class="ace_keyword">public</span> <span
+                            class="ace_keyword">static</span> <span
+                            class="ace_keyword">void</span> <span
+                            class="ace_identifier">main</span>(<span
+                            class="ace_support ace_function">String</span>[]
+                        <span class="ace_identifier">args</span>) {
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">ServerSocket</span> <span
+                            class="ace_identifier">serverSocket</span>;
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword">try</span> {
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">//Set up server socket, and start listening</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">serverSocket</span> <span
+                            class="ace_keyword ace_operator">=</span> <span
+                            class="ace_keyword">new</span> <span
+                            class="ace_identifier">ServerSocket</span>(<span
+                            class="ace_identifier">port</span>);
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_support ace_function">System</span>.<span
+                            class="ace_identifier">out</span>.<span
+                            class="ace_identifier">println</span>(<span
+                            class="ace_string">"Server is running on port:"</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword ace_operator">+</span> <span
+                            class="ace_identifier">serverSocket</span>.<span
+                            class="ace_identifier">getLocalPort</span>());
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// Enter while loop for listening without stopping</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword">while</span>(<span
+                            class="ace_constant ace_language ace_boolean">true</span>){
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword">final</span> <span
+                            class="ace_identifier">Socket</span> <span
+                            class="ace_identifier">socket</span> <span
+                            class="ace_keyword ace_operator">=</span> <span
+                            class="ace_identifier">serverSocket</span>.<span
+                            class="ace_identifier">accept</span>();
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_support ace_function">System</span>.<span
+                            class="ace_identifier">out</span>.<span
+                            class="ace_identifier">println</span>(<span
+                            class="ace_string">"establish TCP connection ,the "</span>
+                        <span class="ace_keyword ace_operator">+</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_string">"client"</span> <span
+                            class="ace_keyword ace_operator">+</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_string">" address is:"</span><span
+                            class="ace_keyword ace_operator">+</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">socket</span>.<span
+                            class="ace_identifier">getInetAddress</span>()<span
+                            class="ace_keyword ace_operator">+</span><span
+                            class="ace_string">":"</span><span
+                            class="ace_keyword ace_operator">+</span><span
+                            class="ace_identifier">socket</span>.<span
+                            class="ace_identifier">getPort</span>());
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">//start dealing with client request</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">service</span>(<span
+                            class="ace_identifier">socket</span>);
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> }
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span> } <span
+                            class="ace_keyword">catch</span> (<span
+                            class="ace_identifier">IOException</span> <span
+                            class="ace_identifier">e</span>) {
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">e</span>.<span
+                            class="ace_identifier">printStackTrace</span>();
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span> }
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span> }
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span> <span
+                            class="ace_comment ace_doc">/**</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_comment ace_doc"> * Start server's service by socket and threads</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_comment ace_doc"> * </span><span
+                            class="ace_comment ace_doc ace_tag">@param</span><span
+                            class="ace_comment ace_doc"> socket the socket accept from client</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_comment ace_doc"> */</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span> <span
+                            class="ace_keyword">private</span> <span
+                            class="ace_keyword">static</span> <span
+                            class="ace_keyword">void</span> <span
+                            class="ace_identifier">service</span>(<span
+                            class="ace_identifier">Socket</span> <span
+                            class="ace_identifier">socket</span>)
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span> {
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// set original file path is the local path</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_support ace_function">String</span>
+                        <span class="ace_identifier">file_path</span> <span
+                                class="ace_keyword ace_operator">=</span> <span
+                                class="ace_string">"/Developer/html/"</span>;
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// use Thread to deal with concurrence</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword">new</span> <span
+                            class="ace_support ace_function">Thread</span>(){
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword">public</span> <span
+                            class="ace_keyword">void</span> <span
+                            class="ace_identifier">run</span>(){
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">InputStream</span> <span
+                            class="ace_identifier">inSocket</span>;
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword">try</span> {
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// Receive header of http request.</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// use inputStream and buffer to save request header</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">inSocket</span> <span
+                            class="ace_keyword ace_operator">=</span> <span
+                            class="ace_identifier">socket</span>.<span
+                            class="ace_identifier">getInputStream</span>();
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword">int</span> <span
+                            class="ace_identifier">size</span> <span
+                            class="ace_keyword ace_operator">=</span> <span
+                            class="ace_identifier">inSocket</span>.<span
+                            class="ace_identifier">available</span>();
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword">byte</span>[] <span
+                            class="ace_identifier">buffer</span> <span
+                            class="ace_keyword ace_operator">=</span> <span
+                            class="ace_keyword">new</span> <span
+                            class="ace_keyword">byte</span>[<span
+                            class="ace_identifier">size</span>];
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">inSocket</span>.<span
+                            class="ace_identifier">read</span>(<span
+                            class="ace_identifier">buffer</span>);
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// convert byter array as string</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_support ace_function">String</span>
+                        <span class="ace_identifier">request</span> <span
+                                class="ace_keyword ace_operator">=</span> <span
+                                class="ace_keyword">new</span> <span
+                                class="ace_support ace_function">String</span>(<span
+                                class="ace_identifier">buffer</span>);
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// print request header</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_support ace_function">System</span>.<span
+                            class="ace_identifier">out</span>.<span
+                            class="ace_identifier">println</span>(<span
+                            class="ace_string">"Client request header:\n"</span><span
+                            class="ace_keyword ace_operator">+</span><span
+                            class="ace_identifier">request</span><span
+                            class="ace_keyword ace_operator">+</span><span
+                            class="ace_string">"\n"</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword ace_operator">+</span> <span
+                            class="ace_string">"--------------------------------------------"</span>
+                        <span class="ace_keyword ace_operator">+</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_string">"----------------------"</span>);
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_support ace_function">String</span>
+                        <span class="ace_identifier">firstLine</span> <span
+                                class="ace_keyword ace_operator">=</span> <span
+                                class="ace_string">""</span>;
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_support ace_function">String</span>[]
+                        <span class="ace_identifier">heads</span>;
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_support ace_function">String</span>
+                        <span class="ace_identifier">url</span> <span
+                                class="ace_keyword ace_operator">=</span> <span
+                                class="ace_string">"/index.html"</span>;
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_support ace_function">String</span>
+                        <span class="ace_identifier">contentType</span> <span
+                                class="ace_keyword ace_operator">=</span><span
+                                class="ace_string">""</span>;
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword">if</span>(<span
+                            class="ace_identifier">request</span>.<span
+                            class="ace_identifier">length</span>() <span
+                            class="ace_keyword ace_operator">&gt;</span> <span
+                            class="ace_constant ace_numeric">0</span>){
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_support ace_function">System</span>.<span
+                            class="ace_identifier">out</span>.<span
+                            class="ace_identifier">println</span>(<span
+                            class="ace_string">"Check file name"</span>);
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">firstLine</span> <span
+                            class="ace_keyword ace_operator">=</span> <span
+                            class="ace_identifier">request</span>.<span
+                            class="ace_identifier">substring</span>(<span
+                            class="ace_constant ace_numeric">0</span>,
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">request</span>.<span
+                            class="ace_identifier">indexOf</span>(<span
+                            class="ace_string">"\r\n"</span>));
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// split first GET line to find target file</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">heads</span> <span
+                            class="ace_keyword ace_operator">=</span> <span
+                            class="ace_identifier">firstLine</span>.<span
+                            class="ace_identifier">split</span>(<span
+                            class="ace_string">" "</span>);
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// save file name as head</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">url</span> <span
+                            class="ace_keyword ace_operator">=</span> <span
+                            class="ace_identifier">heads</span>[<span
+                            class="ace_constant ace_numeric">1</span>];
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword">if</span>(<span
+                            class="ace_identifier">url</span>.<span
+                            class="ace_identifier">contains</span>(<span
+                            class="ace_string">"html"</span>)){
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// set response type is text/html</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">contentType</span> <span
+                            class="ace_keyword ace_operator">=</span> <span
+                            class="ace_string">"text/html"</span>;
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> }<span
+                            class="ace_keyword">else</span>{
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">contentType</span> <span
+                            class="ace_keyword ace_operator">=</span> <span
+                            class="ace_string">"application/octet-stream"</span>;
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> }
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> }
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_support ace_function">System</span>.<span
+                            class="ace_identifier">out</span>.<span
+                            class="ace_identifier">println</span>(<span
+                            class="ace_string">"client request html file: "</span>
+                        <span class="ace_keyword ace_operator">+</span> <span
+                                class="ace_identifier">url</span>);
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// send response header back to client</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// noticed HTTP/0.9 won't work</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_support ace_function">String</span>
+                        <span class="ace_identifier">responseFirstLine_200</span>
+                        <span class="ace_keyword ace_operator">=</span> <span
+                                class="ace_string">"HTTP/1.1 200 OK\r\n"</span>;
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_support ace_function">String</span>
+                        <span class="ace_identifier">responseFirstLine_404</span>
+                        <span class="ace_keyword ace_operator">=</span> <span
+                                class="ace_string">"HTTP/1.1 404  Not Found\r\n"</span>;
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_support ace_function">String</span>
+                        <span class="ace_identifier">responseHead</span> <span
+                                class="ace_keyword ace_operator">=</span> <span
+                                class="ace_string">"Content-Type:"</span> <span
+                                class="ace_keyword ace_operator">+</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">contentType</span> <span
+                            class="ace_keyword ace_operator">+</span><span
+                            class="ace_string">"\r\n"</span>;
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">OutputStream</span> <span
+                            class="ace_identifier">outputStream</span> <span
+                            class="ace_keyword ace_operator">=</span> <span
+                            class="ace_identifier">socket</span>.<span
+                            class="ace_identifier">getOutputStream</span>();
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">//get url with file path</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// set default html file as error.html</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// read file from server path</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">FileInputStream</span> <span
+                            class="ace_identifier">targetHtml</span> <span
+                            class="ace_keyword ace_operator">=</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword">new</span> <span
+                            class="ace_identifier">FileInputStream</span>(<span
+                            class="ace_keyword">new</span> <span
+                            class="ace_identifier">File</span>(<span
+                            class="ace_identifier">file_path</span> <span
+                            class="ace_keyword ace_operator">+</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_string">"/error.html"</span>));
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword">try</span> {
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// default as error html : 404 not found.</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// if url is not empty then try to open user request</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// html file</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">targetHtml</span> <span
+                            class="ace_keyword ace_operator">=</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword">new</span> <span
+                            class="ace_identifier">FileInputStream</span>(<span
+                            class="ace_keyword">new</span> <span
+                            class="ace_identifier">File</span>(
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">file_path</span> <span
+                            class="ace_keyword ace_operator">+</span> <span
+                            class="ace_identifier">url</span>));
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// print out response in console</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_support ace_function">System</span>.<span
+                            class="ace_identifier">out</span>.<span
+                            class="ace_identifier">println</span>(<span
+                            class="ace_string">"ServerResponse:\n"</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword ace_operator">+</span> <span
+                            class="ace_identifier">responseFirstLine_200</span>
+                        <span class="ace_keyword ace_operator">+</span> <span
+                                class="ace_string">"\n"</span> <span
+                                class="ace_keyword ace_operator">+</span> <span
+                                class="ace_identifier">responseHead</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword ace_operator">+</span><span
+                            class="ace_string">"\n"</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword ace_operator">+</span> <span
+                            class="ace_string">"------------------------------------------"</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword ace_operator">+</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_string">"--------------------------"</span>);
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// write response header to client</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">outputStream</span>.<span
+                            class="ace_identifier">write</span>(<span
+                            class="ace_identifier">responseFirstLine_200</span>.<span
+                            class="ace_identifier">getBytes</span>());
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">outputStream</span>.<span
+                            class="ace_identifier">write</span>(<span
+                            class="ace_identifier">responseHead</span>.<span
+                            class="ace_identifier">getBytes</span>());
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> }<span
+                            class="ace_keyword">catch</span> (<span
+                            class="ace_identifier">IOException</span> <span
+                            class="ace_identifier">e</span>){
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// if failed than targetHtml still will be error.html</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// and send 404 not found response</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">e</span>.<span
+                            class="ace_identifier">printStackTrace</span>();
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_support ace_function">System</span>.<span
+                            class="ace_identifier">out</span>.<span
+                            class="ace_identifier">println</span>(<span
+                            class="ace_string">"ServerResponse:\n"</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword ace_operator">+</span> <span
+                            class="ace_identifier">responseFirstLine_404</span>
+                        <span class="ace_keyword ace_operator">+</span> <span
+                                class="ace_string">"\n"</span> <span
+                                class="ace_keyword ace_operator">+</span> <span
+                                class="ace_identifier">responseHead</span><span
+                                class="ace_keyword ace_operator">+</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_string">"\n"</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword ace_operator">+</span> <span
+                            class="ace_string">"------------------------------------------"</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword ace_operator">+</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_string">"--------------------------"</span>);
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// write response header to client</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">outputStream</span>.<span
+                            class="ace_identifier">write</span>(<span
+                            class="ace_identifier">responseFirstLine_404</span>.<span
+                            class="ace_identifier">getBytes</span>());
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">outputStream</span>.<span
+                            class="ace_identifier">write</span>(<span
+                            class="ace_identifier">responseHead</span>.<span
+                            class="ace_identifier">getBytes</span>());
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> }
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// send byte response to client</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">outputStream</span>.<span
+                            class="ace_identifier">write</span>(<span
+                            class="ace_string">"\r\n"</span>.<span
+                            class="ace_identifier">getBytes</span>());
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword">byte</span>[] <span
+                            class="ace_identifier">contentBuffer</span> <span
+                            class="ace_keyword ace_operator">=</span> <span
+                            class="ace_keyword">new</span> <span
+                            class="ace_keyword">byte</span>[<span
+                            class="ace_identifier">targetHtml</span>.<span
+                            class="ace_identifier">available</span>()];
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// write content in file back to client</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword">int</span> <span
+                            class="ace_identifier">len</span> <span
+                            class="ace_keyword ace_operator">=</span> <span
+                            class="ace_constant ace_numeric">0</span>;
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_support ace_function">System</span>.<span
+                            class="ace_identifier">out</span>.<span
+                            class="ace_identifier">println</span>(<span
+                            class="ace_string">"sending html page source code"</span>);
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_keyword">while</span>((<span
+                            class="ace_identifier">len</span> <span
+                            class="ace_keyword ace_operator">=</span> <span
+                            class="ace_identifier">targetHtml</span>.<span
+                            class="ace_identifier">read</span>(<span
+                            class="ace_identifier">contentBuffer</span>)) <span
+                            class="ace_keyword ace_operator">!=</span> <span
+                            class="ace_constant ace_numeric">-1</span>){
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">outputStream</span>.<span
+                            class="ace_identifier">write</span>(<span
+                            class="ace_identifier">contentBuffer</span>, <span
+                            class="ace_constant ace_numeric">0</span>,<span
+                            class="ace_identifier">len</span>);
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> }
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// close stream</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">outputStream</span>.<span
+                            class="ace_identifier">close</span>();
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// close socket</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">socket</span>.<span
+                            class="ace_identifier">close</span>();
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// close inputStream</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">inSocket</span>.<span
+                            class="ace_identifier">close</span>();
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_comment">// close outputStream</span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">targetHtml</span>.<span
+                            class="ace_identifier">close</span>();
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> } <span
+                            class="ace_keyword">catch</span> (<span
+                            class="ace_identifier">IOException</span> <span
+                            class="ace_identifier">e</span>) {
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> <span
+                            class="ace_identifier">e</span>.<span
+                            class="ace_identifier">printStackTrace</span>();
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> }
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span><span
+                            class="ace_indent-guide">    </span> }
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span><span
+                            class="ace_indent-guide">    </span> }.<span
+                            class="ace_identifier">start</span>();
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span> }
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>}
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                    <div class="ace_line"><span
+                            class="ace_gutter ace_gutter-cell"
+                            unselectable="on"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell markdown-cell"><h2>Task 2: (4 points) Test your server
+            by sending requests from browsers running on different hosts.</h2>
+            <ul>
+                <li>Put an HTML file (e.g., HelloWorld.html) in the same
+                    directory that the server is in.
+                </li>
+                <li>Run the server program. Determine the IP address of the
+                    host that is running the<br>
+                    server (e.g., 128.238.251.26).
+                </li>
+                <li>From another host, open a browser and provide the
+                    corresponding URL. For<br>
+                    example: <a
+                            href="http://128.238.251.26:6789/HelloWorld.html">http://128.238.251.26:6789/HelloWorld.html</a>
+                    .‘HelloWorld.html’ is the name of the file you placed in
+                    the server directory. Note also the use of the port number
+                    after the colon.
+                </li>
+                <li>You need to replace this port number with whatever port you
+                    have used in the server code. In the above example, we have
+                    used the port number 6789.
+                </li>
+                <li>The browser should then display the contents of
+                    HelloWorld.html. If you omit ":6789", the browser will
+                    assume port 80 and you will get the web page from the
+                    server only if your server is listening at port 80.
+                </li>
+                <li>Then try to get a file that is not present at the server.
+                    You should get a “404 Not Found” message.
+                </li>
+            </ul>
+        </div>
+        <div class="cell markdown-cell"><h1>Test:</h1>
+        </div>
+        <div class="cell markdown-cell"><h1>Output:</h1>
+            <blockquote>
+                <p>Brief:<br>
+                    I bought a domain name - easonjia.online.<br>
+                    Already link to <a
+                            href="http://os.cs.smu.ca">os.cs.smu.ca</a>
+                    server<br>
+                    Environment : Java.<br>
+                    Port : 1989</p>
+            </blockquote>
+            <h2>1. First attempt</h2>
+            <h2>correct file name request with 200 OK response</h2>
+            <h3>Server side:</h3>
+            <p><img src="resources/FA44395CB041735B8040F44F13B6E814.jpg"
+                    alt="IMAGE" width="1556" height="792"><br>
+                <img src="resources/87E8492DC59D12FBD5612ED6291B93B6.jpg"
+                     alt="IMAGE" width="1556" height="792"></p>
+            <h3>client side:</h3>
+            <p><img src="resources/86691DDBA1CFFE63137433C9F9D4EB6C.jpg"
+                    alt="IMAGE" width="1988" height="1169"></p>
+            <h2>2. Second attempt</h2>
+            <h2>wrong/not exist file name request with 404 not Found
+                response</h2>
+            <h3>Server side:</h3>
+            <h3>Intent to print out Error message. Already catch error and deal
+                with it properly.</h3>
+            <p><img src="resources/9940BBF8A3F945FEBB0BD7B543EBC438.jpg"
+                    alt="IMAGE" width="1556" height="1023"></p>
+            <h3>client side:</h3>
+            <p><img src="resources/64C2712125A5B2265CF7C8A33BC6BD57.jpg"
+                    alt="IMAGE" width="1988" height="1169"></p>
+            <h2>various client attempts</h2>
+            <h3>First attempt</h3>
+            <h3>client ip: 140.184.56.215:54180</h3>
+            <p><img src="resources/ADF69CD454B4A3C42249E4B6B3FED272.jpg"
+                    alt="IMAGE" width="1556" height="1023"></p>
+            <h3>Second attempt</h3>
+            <h3>client ip: 140.184.219.94:64584</h3>
+            <p><img src="resources/CA5DADF04571ECF2FB64BC739915A348.jpg"
+                    alt="IMAGE" width="1556" height="1023"></p>
+            <h3>Third attempt</h3>
+            <h3>client ip: 172.104.97.61:53161</h3>
+            <p><img src="resources/C3685EB69D144274C70CA0BC5A42BD5F.jpg"
+                    alt="IMAGE" width="786" height="304"></p>
+        </div>
+        <div class="cell markdown-cell"><h2>Task 3: (4 points) answer the
+            following questions:</h2>
+            <h3>1. Is there a limit on the size of the file that can be sent?
+                Why?</h3>
+            <hr>
+            <h2>Sol.</h2>
+            <h3>No.</h3>
+            <h4>There is no limitation on response message. There is a
+                content-length in request header, but not in response header.
+                Because of this setting, we can send unlimited size of file to
+                client. It also is good way to handle downloading files for
+                client.</h4>
+            <blockquote>
+                <p>Ref: <a
+                        href="https://stackoverflow.com/questions/461282/what-is-the-maximum-file-size-i-can-transfer-using-http-and-using-ftp">https://stackoverflow.com/questions/461282/what-is-the-maximum-file-size-i-can-transfer-using-http-and-using-ftp</a><br>
+                    <img src="resources/03B181BE788E080BD8B7CDEF379CBD96.jpg"
+                         alt="IMAGE" width="772" height="227"></p>
+            </blockquote>
+            <h3>2. In the case when a client requests a large file (e.g., few
+                gigabytes in size), what happens to clients that are
+                waiting?</h3>
+            <hr>
+            <h2>Sol.</h2>
+            <p><img src="resources/FFC7063DC2C279A25E82C477609D181E.jpg"
+                    alt="IMAGE" width="998" height="327"></p>
+            <h4>If the file is too big and server's throughout is not enough,
+                then the server/client will have a big delay on file
+                transferring. If there are a lot of users are sending big file
+                requests to server, then it could cause block.</h4>
+            <br>
+            <h2>3. Why is it important to close a file after it is sent?</h2>
+            <hr>
+            <h2>Sol.</h2>
+            <h4>If we don't close file inputStream, then the system call <code>file
+                read()</code> will continue stand by. And if there is another
+                user wants to read file, then this new thread will have a block
+                until last file inputStream release lock. If we forget to close
+                file stream, then the waiting time will be infinity. Therefore,
+                in order to be more efficient, we close file stream immediately
+                after we finishing reading.</h4>
+            <h2>4. Why it is important to close the connection after a response
+                is sent?</h2>
+            <h2>Sol.</h2>
+            <blockquote>
+                <p><img src="resources/F3F5AE13451E237C894A3B1DA8B15A0E.jpg"
+                        alt="IMAGE" width="481" height="808"><br>
+                    <img src="resources/CC1015D8FDDBFD82B639E6E1ED7F3ACB.jpg"
+                         alt="IMAGE" width="800" height="486"><br>
+                    Ref: 1. <a
+                            href="https://blog.csdn.net/zhangxiao93/article/details/52078784">https://blog.csdn.net/zhangxiao93/article/details/52078784</a><br>
+                    Ref: 2. <a
+                            href="https://www.cnblogs.com/lidabo/p/4534755.html">https://www.cnblogs.com/lidabo/p/4534755.html</a><br>
+                    Ref: 3. <a
+                            href="https://stackoverflow.com/questions/17077096/do-i-need-to-close-a-socket">https://stackoverflow.com/questions/17077096/do-i-need-to-close-a-socket</a>
+                </p>
+            </blockquote>
+            <h3>According to the information from the Internet, we know that if
+                we don't close connection, the system will have problems.But,
+                what problems?</h3>
+            <h3>When we write our server program, we create multiple
+                threads/processes to deal with client request. Otherwise, there
+                will be only one client can be serve at a time. However, the
+                number of threads/processes can be invoked is limited. It
+                depends on the server's computer configuration or the thread
+                pools setting by developer. If there are too many
+                sockets(threads) in the same time, the server will have
+                block.And also, we know that after a client request for
+                establishing a connection, the server will send response back.
+                And client will close connection/socket first. Then Server will
+                close.</h3>
+            <h3>In persistent connection, By TCP protocol, if client didn't
+                close immediately, after a certain time, the connection will
+                still close by server. And in non-persistent connections, every
+                single request/response finished, the connection will
+                close.</h3>
+            <h3>Those rules are preventing server for blocking. If we don't
+                close connection after sending response, server will continue
+                listen to a socket that is already closed by client. And it
+                will have block. So we close connection right after sending
+                response.</h3>
+            <p>NOTE: if you run your server on a host that already has a web
+                server running on it, then you should use a different port that
+                80.<br>
+                What to hand in? You will hand in the complete webServer code
+                along with the screen shots of your program runs, verifying
+                that you server is able to connect to web clients and send the
+                responses.</p>
+        </div>
+        <div class="cell markdown-cell"><p>Evaluation Criteria</p>
+            <ol>
+                <li>
+                    <p>Correctness: Program is free of syntax and logical
+                        errors. Program must meet the<br>
+                        requirements specified in the assignment description.
+                        Proper handling of exceptions,<br>
+                        error conditions, and special cases as well as
+                        providing correct results/output.</p>
+                </li>
+                <li>
+                    <p>Testing: test cases provided take into consideration all
+                        cases including error conditions<br>
+                        and special cases. Test your web server using various
+                        web clients.</p>
+                </li>
+                <li>
+                    <p>Style: code is general purpose and well organized<br>
+                        Documentation: Your program is properly documented; at
+                        the beginning of each<br>
+                        class/function, there is a brief description about the
+                        class/function, its main<br>
+                        characteristics, main functionality and proper usage.
+                    </p>
+                </li>
+                <li>
+                    <p>Efficiency: program should use the most appropriate
+                        solution/method</p>
+                </li>
+                <li>
+                    <p>Interface: program must be simple to use. Your program
+                        uses simple and clear<br>
+                        messages when prompting the user to enter data. Your
+                        program notifies the user with a closing message when
+                        the program is terminated.</p>
+                </li>
+            </ol>
+        </div>
+        <div class="cell markdown-cell"><p>Self-evaluation</p>
+            <p>Please answer the following questions:</p>
+            <ol>
+                <li>[1 points] Were you able to complete this assignment? What
+                    grade are you expecting? Justify.
+                    <ol>
+                        <li>Yes, I hope I can get 100%.</li>
+                        <li>I put a lot of time on this assignment, I read all
+                            the information I can get to answer the question.
+                        </li>
+                        <li>I spent hours to optimize my webServer program. It
+                            works smoothly.
+                        </li>
+                    </ol>
+                </li>
+                <li>[1 points] Describe 2-3 challenges you faced while
+                    completing this assignment. How did you tackle those
+                    challenges?
+                    <ol>
+                        <li>Identify those app's application layer protocol.
+                            Really hard to find any information about this
+                            question.
+                        </li>
+                        <li>Learn how to write server side program.</li>
+                        <li>Optimize performing of server side.</li>
+                        <li>Read RFC 2616.</li>
+                        <li>I spent more and more time to tackle those
+                            challenges. Anything about those challenges is
+                            learn more.
+                        </li>
+                    </ol>
+                </li>
+                <li>[1 points] Provide a break down for the
+                    activities/milestones for this assignment. Give an estimate
+                    of hours spent on each activity. Try to be honest!
+                    <ul>
+                        <li>Evaluation Scheme</li>
+                    </ul>
+                </li>
+            </ol>
+            <table>
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th style="text-align:center">Activities</th>
+                    <th style="text-align:center">Hours</th>
+                    <th style="text-align:center">Outcome</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Oct.05</td>
+                    <td style="text-align:center">Writing socket</td>
+                    <td style="text-align:center">2 hours</td>
+                    <td style="text-align:center">Finish first stage</td>
+                </tr>
+                <tr>
+                    <td>Oct.07</td>
+                    <td style="text-align:center">Finish whole project</td>
+                    <td style="text-align:center">6 hours</td>
+                    <td style="text-align:center">Optimize program and writing
+                        404 not found with 200 OK response
+                    </td>
+                </tr>
+                <tr>
+                    <td>Oct.08</td>
+                    <td style="text-align:center">Writing questions</td>
+                    <td style="text-align:center">8 hours</td>
+                    <td style="text-align:center">searching a lot of
+                        information from the Internet and textbook. Spent a lot
+                        of time reading.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Oct.08</td>
+                    <td style="text-align:center">finish questions</td>
+                    <td style="text-align:center">4 hours</td>
+                    <td style="text-align:center">learn a lot of things about
+                        protocol
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>document.body.onkeyup = function (e) {
+    }</script>
+<br><br>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">Post by ZeSheng Jia.</span>
+    </div>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../js/jquery-slim.min.js"><\/script>')</script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+  
