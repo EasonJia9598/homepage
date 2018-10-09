@@ -351,6 +351,17 @@
     }</style>
 </head>
 <body>
+<script src="../js/jquery.min.js"></script>
+<script>
+    $(function(){
+        /*公共部分
+         * 导航栏
+         * footer CopyRight
+         */
+        $(".headerPage").load("../header_footer/header.html");
+        $(".footerPage").load("../header_footer/footer.html");
+    });
+</script>
 <div class="headerPage"></div>
 <main role="main" class="container">
 
